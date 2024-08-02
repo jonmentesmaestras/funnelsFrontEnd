@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import RequestSvc from '../services/RequestSvc';
-import {API, NAME_HEADER_AUTH} from "../utils/Constants";
+import { API, NAME_HEADER_AUTH } from "../utils/Constants";
 import * as FunnelsSvc from "../services/FunnelsSvc";
-import {getStoredValue} from "../services/UseLocalStorageSvc";
+import { getStoredValue } from "../services/UseLocalStorageSvc";
 
 async function addTrack() {
     let addTrack = await FunnelsSvc.userTrack();
 }
 
-export default function SearchToolbar({setResults, closeSidebar, setIsLoading, searchDomain}) {
+export default function SearchToolbar({ setResults, closeSidebar, setIsLoading, searchDomain }) {
     const queryParameters = new URLSearchParams(window.location.search)
     // let userToken = queryParameters.get('token') ?? null
     let userToken = getStoredValue(NAME_HEADER_AUTH)
@@ -53,9 +53,9 @@ export default function SearchToolbar({setResults, closeSidebar, setIsLoading, s
                     onChange={(e) => setInput(e.target.value)}
                 />
                 <IconButton aria-label="delete" clear
-                            size="small" sx={{color: "#2196F3"}}
-                            onClick={onClickBtnSearch}>
-                    <SearchIcon fontSize="inherit"/>
+                    size="small" sx={{ color: "#2196F3" }}
+                    onClick={onClickBtnSearch}>
+                    <SearchIcon fontSize="inherit" />
                 </IconButton>
             </div>
             {/*<button className={"search-toolbar-button"}>Enlaces guardados</button>*/}

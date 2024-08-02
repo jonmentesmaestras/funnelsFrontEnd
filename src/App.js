@@ -2,12 +2,13 @@ import SearchToolbar from "./components/SearchToolbar";
 import ToolbarComponent from "./components/ToolbarComponent";
 import "./App.css"
 import MainLayout from "./views/MainLayout";
-import {useState} from "react";
+import { useState } from "react";
 import ListDialogComponent from "./components/Dialogs/ListDialogComponent";
 import logoSpy from "./assets/img_logo_funnels.png";
 import DialogSaveLink from "./components/Dialogs/DialogSaveLink";
 import SideBar from "./views/innerViews/SideBar";
 import LoaderComponent from "./components/loaders/LoaderComponent";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
     let [domainsResult, setDomainsResult] = useState([]);
@@ -54,52 +55,53 @@ function App() {
     }
     return (
         <div className={"parent-layout"}>
-            <div className={"main-layout"}>
-                <ToolbarComponent openSidebar={openSidebar} setOpenSidebar={changeStatSidebar}/>
-                <SearchToolbar setResults={setResults}
-                               closeSidebar={closeSidebar}
-                               setIsLoading={setIsLoading}
-                               searchDomain={domain}/>
-                <div className="content-main-layout">
-                    <SideBar
-                        changeStatSidebar={changeStatSidebar}
-                        openSidebar={openSidebar}
-                        reloadCategories={reloadCategories}
-                        userCategories={userCategories}
-                        setReloadCategories={setReloadCategories}
-                        setUserCategories={setUserCategories}
+            <BrowserRouter>
+                <div className={"main-layout"}>
+                    <ToolbarComponent openSidebar={openSidebar} setOpenSidebar={changeStatSidebar} />
+                    <SearchToolbar setResults={setResults}
+                        closeSidebar={closeSidebar}
                         setIsLoading={setIsLoading}
-                        setshowIframe={setshowIframe}/>
-                    <MainLayout domainResult={domainsResult}
-                                saveLink={saveLink}
-                                setshowIframe={setshowIframe}
-                                showIframe={showIframe}
-                                savedLinks={savedLinks}
-                                openSidebar={openSidebar}
-                                showLayoutResult={showLayoutResult}
-                                setShowLayoutResult={setShowLayoutResult}
-                    />
+                        searchDomain={domain} />
+                    <div className="content-main-layout">
+                        <SideBar
+                            changeStatSidebar={changeStatSidebar}
+                            openSidebar={openSidebar}
+                            reloadCategories={reloadCategories}
+                            userCategories={userCategories}
+                            setReloadCategories={setReloadCategories}
+                            setUserCategories={setUserCategories}
+                            setIsLoading={setIsLoading}
+                            setshowIframe={setshowIframe} />
+                        <MainLayout domainResult={domainsResult}
+                            saveLink={saveLink}
+                            setshowIframe={setshowIframe}
+                            showIframe={showIframe}
+                            savedLinks={savedLinks}
+                            openSidebar={openSidebar}
+                            showLayoutResult={showLayoutResult}
+                            setShowLayoutResult={setShowLayoutResult}
+                        />
+                    </div>
+
                 </div>
-
-            </div>
-            {openDialog === true && (
-                <ListDialogComponent setOpenDialog={setOpenDialog} image={logoSpy} content={content}/>
-            )}
-            {openSaveDialog === true && (
-                <DialogSaveLink
-                    setSaveDialog={setSaveDialog}
-                    linkToSave={linkSelected}
-                    userCategories={userCategories}
-                    setUserCategories={setUserCategories}
-                    setReloadCategories={setReloadCategories}
-                    setStateSidebar={changeStatSidebar}
-                    addLinkToSave={addLinkToSave}/>
-            )}
-            {isLoading && (
-                <LoaderComponent/>
-            )}
+                {openDialog === true && (
+                    <ListDialogComponent setOpenDialog={setOpenDialog} image={logoSpy} content={content} />
+                )}
+                {openSaveDialog === true && (
+                    <DialogSaveLink
+                        setSaveDialog={setSaveDialog}
+                        linkToSave={linkSelected}
+                        userCategories={userCategories}
+                        setUserCategories={setUserCategories}
+                        setReloadCategories={setReloadCategories}
+                        setStateSidebar={changeStatSidebar}
+                        addLinkToSave={addLinkToSave} />
+                )}
+                {isLoading && (
+                    <LoaderComponent />
+                )}
+            </BrowserRouter>
         </div>
-
     );
 }
 

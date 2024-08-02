@@ -5,7 +5,7 @@ const BASE_URL_API_DEV = 'localhost';
 const BACKEND_PORT = "3002"
 const PROTOCOL = window.location.protocol;
 export const HOST = PROTOCOL === 'https:' ? `${BASE_URL_API_OPS}` : `${BASE_URL_API_DEV}:${BACKEND_PORT}`;
-export const BASE_URL_API = `${window.location.protocol}//${HOST}/`;
+export const BASE_URL_API = `${window.location.protocol}/${HOST}/`;
 
 export const TEXT_CATEGORY_BTN = Object.freeze({
     CREATE: 'Crear nueva categoría',
@@ -20,6 +20,6 @@ export const API = Object.freeze({
     FUNNELS_SITEMAP: "https://funnels.tueducaciondigital.site/funnel/get_sitemap_urls?domain="
 })
 // FUNNELS_SITEMAP: 'https://funnels.tueducaciondigital.site/funnel/get_sitemap_urls?domain=',
-export const BASE_URL_FRONT_END = `${window.location.protocol}//${window.location.host}/`;
+export const BASE_URL_FRONT_END = `${window.location.protocol}/${window.location.host}/`;
 export const URL_LOGIN = `${BASE_URL_FRONT_END}login`;
 export const NAME_HEADER_AUTH = "T-CS";
