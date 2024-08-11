@@ -62,7 +62,7 @@ const Dropdown = () => {
             </div>
             <div className="dropdownMenu">
               <div className="dropdownItems">
-                <Link to="/" onClick={handleDropDown}>
+                <Link to="/profile" onClick={handleDropDown}>
                   <img src={userIcon} alt="" />
                   Mi cuenta
                 </Link>

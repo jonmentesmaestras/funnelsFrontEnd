@@ -36,7 +36,7 @@
 
 .toolbar {
     height: 64px;
-    width: 100%;
+    /* width: 100%; */
     background-color: var(--color-toolbar);
     align-items: center;
     display: flex;
